@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Button from './components/Button';
 
 function App() {
+  const [good, setGood] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h2>Give Feedback</h2>
+      <Button text="Good" handleClick={() => setGood(good + 1)} />
+      <Button text="Neutral" handleClick={() => setNeutral(neutral + 1)} />
+      <Button text="Bad" handleClick={() => setBad(bad + 1)} />
+
+      <h2>Statistics</h2>
+      <br />
+      <p>Good {good}</p>
+      <p>Neutral {neutral}</p>
+      <p>Bad {bad}</p>
+    </>
   );
 }
 
